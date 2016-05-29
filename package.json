@@ -1,0 +1,12 @@
+{
+  "name": "healthyME",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.8",
+    "jquery": "^2.2.3",
+    "meteor-node-stubs": "~0.2.0"
+  }
+}
