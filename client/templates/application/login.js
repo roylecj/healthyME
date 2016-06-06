@@ -108,6 +108,21 @@ Template.login.events({
         var deviceId;
         deviceId = securityDetails.deviceId;
 
+        if (Session.get("isDebugging")) {
+          Meteor.loginWithPassword(userId, password, function(e) {
+              console.log("logging in with " + userId);
+
+              console.log(e);
+
+              if (!e) {
+              Session.set('signedIn', true);
+              Router.go('patientSummary');
+            } else {
+              sAlert.error('Error logging in: ' + e.reason);
+            }
+          });
+        }
+
         if (deviceId) {
           Meteor.call("checkDeviceState", "https://schedulingdemo.healthhost.net/UltraGendaBrokaMobilityWebAPI/api/devices/" + deviceId + "/status", function(e, result) {
 
@@ -128,7 +143,7 @@ Template.login.events({
 
                     if (!e) {
                     Session.set('signedIn', true);
-                    Router.go('appointmentList');
+                    Router.go('patientSummary');
                   } else {
                     sAlert.error('Error logging in: ' + e.reason);
                   }

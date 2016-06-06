@@ -14,10 +14,31 @@
       profile: { name: 'Chris Royle'}
     });
 
+    var taskId = Tasks.insert({
+      taskHeading: "Blood Glucose",
+      taskName: "Blood Glucose",
+      taskDescription: "What is your Glucose level today",
+      taskUOM: "ml/kL"
+    });
+
+    var taskWeightId = Tasks.insert({
+      taskHeading: "Height / Weight",
+      taskName: "Weight",
+      taskDescription: "What is your weight in kg",
+      taskUOM: "kg"
+    });
+
     PatientSettings.insert({
       userId: userId,
       secret: "UrbygQkNeMrmNa5pGkyNLQFqMecdyWjcK2TtzhW2W5un7bNjNcCBbjqFhMaKBWJEzVVFXqmQatjx9hQeyTuqvVS4cejEVz7fUSY4P2du6sk8Q8inLhFdDC5keGkzGwdP",
-      deviceId: "669caeb1-f67d-45b2-8ab1-2ca833ab054b"
+      deviceId: "669caeb1-f67d-45b2-8ab1-2ca833ab054b",
+      tasks: [{
+        taskId: taskId,
+        lastPerformed: new Date()
+      }, {
+        taskId: taskWeightId,
+        lastPerformed: new Date()
+      }]
     });
 
     LocationLinks.insert({

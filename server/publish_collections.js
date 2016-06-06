@@ -17,3 +17,16 @@ Meteor.publish('patientAppointmentDetails', function() {
 Meteor.publish('locationLinks', function() {
     return LocationLinks.find();
 })
+
+// This is the reference data for tasks that are required - e.g. Blood Glucose monitoring, or BP monitoring or Weight
+Meteor.publish('tasks', function() {
+    return Tasks.find();
+});
+
+Meteor.publish('patientMessages', function() {
+    return PatientMessages.find();
+});
+
+Meteor.publish('patientObservations', function() {
+    return PatientObservations.find();
+});

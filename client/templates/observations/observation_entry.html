@@ -1,0 +1,34 @@
+<template name="observationEntry">
+  <!--
+  Allows the recording of observations by the patientSummary
+
+  - We need to record this in LORENZO - in the various CDC forms that are setup.
+  - We need to ensure that the source of the data is "PATIENT" so that the clinician
+  is aware of how accurate it might be (or not).
+
+  -->
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      {{taskHeading}}
+    </div>
+    <div class="panel-body">
+      <h4>{{taskName}}</h4>
+<!-- Tell them what to do... -->
+      {{taskDescription}}
+
+      <form class="main form page">
+        <div class="form-group">
+        <label class="control-label">{{taskName}} ({{taskUOM}})</label>
+        <input class="form-control" id="obsValue" name="obsValue" type="text" value="{{obsValue}}" placeholder="">
+        </div>
+      </form>
+
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-xs btn-success btnSave pull-left" id="btnSave">Save</button>
+      <button class="btn btn-xs btn-danger btnCancel pull-right" id="btnCancel">Cancel</button>
+    </div>
+  </div>
+
+</template>

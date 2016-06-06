@@ -8,6 +8,17 @@ Template.header.helpers({
   },
   loading: function() {
     return Session.get("isLoading");
+  },
+  debugMode: function() {
+    if (Session.get("isDebugging")) {
+      return "(DEBUG MODE)"
+    }
+  },
+  patientTaskEntry: function() {
+
+    var currentSettings = PatientSettings.findOne({userId: Meteor.userId()});
+
+    return currentSettings.tasks
   }
 });
 
